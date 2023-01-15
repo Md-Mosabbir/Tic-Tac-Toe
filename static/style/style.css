@@ -17,10 +17,25 @@
 .box{
     width: 100px;
     height: 100px;
+    position: relative;
     border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.X-O{
+    position: relative;
+    
+}
+.X-O::before{
+    content: ''; position: absolute; width: 45px; rotate: 45deg; border: 3px solid black;
+}
+.X-O::after{
+    content: '';
+    position: absolute;
+    width: 45px;
+    rotate: -45deg;
+    border: 3px solid black;
 }
 
 .box:first-child,
