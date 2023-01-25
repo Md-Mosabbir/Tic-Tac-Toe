@@ -44,8 +44,7 @@ const gameBoard = (function () {
   }
 })()
 
-
-
+// eslint-disable-next-line no-unused-vars
 const displayController = (function () {
   let _xMark = true
   const boxCells = document.querySelectorAll('[data-box]')
@@ -68,9 +67,32 @@ const displayController = (function () {
 
   function endgame (p) {
     if (gameBoard.checkForWin(p)) {
-      console.log('Winner winner Chicken Dinner')
+      winner(p)
     } else if (gameBoard.checkForDraw() === true) {
-      console.log('slkjfhsdfhsdlj')
+      draw()
+    }
+  }
+
+  function winner (sign) {
+    if (sign === mosabbir.symbol) {
+      const winnerDiv = document.querySelector('.winner')
+      const headerTag = document.createElement('h1')
+      headerTag.textContent = 'Winner is'
+      const nameP = document.createElement('p')
+      nameP.textContent = `${mosabbir.name}`
+
+      winnerDiv.appendChild(headerTag)
+      winnerDiv.appendChild(nameP)
+    } else if (sign === mosarrat.symbol) {
+      const winnerDiv = document.querySelector('.winner')
+      const headerTag = document.createElement('h1')
+      headerTag.textContent = 'Winner is'
+      const nameP = document.createElement('p')
+      nameP.textContent = `${mosarrat.name}`
+
+      winnerDiv.appendChild(headerTag)
+      winnerDiv.appendChild(nameP)
+      winnerDiv.style.display = 'block'
     }
   }
 })()
