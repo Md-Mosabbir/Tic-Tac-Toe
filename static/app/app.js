@@ -17,7 +17,14 @@ const gameBoard = (function () {
   // Function for displaying X and O in DOM
   function displayArray () {
     for (let i = 0; i < _Board.length; i++) {
-      boxCells[i].textContent = _Board[i]
+      // boxCells[i].textContent = _Board[i]
+      if (_Board[i] === 'x') {
+        boxCells[i].textContent = 'x'
+      } else if (_Board[i] === 'o') {
+        boxCells[i].textContent = 'o'
+      } else if (_Board[i] === '') {
+        boxCells[i].textContent = ''
+      }
     }
   }
   displayArray()
@@ -26,6 +33,7 @@ const gameBoard = (function () {
 
     splicingBoard: function (data, x) {
       _Board.splice(parseInt(data), 1, x)
+      displayArray()
     },
     checkForWin: function (s) {
       return _winningCombination.some(combination => {

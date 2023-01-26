@@ -23,14 +23,14 @@
     align-items: center;
     justify-content: center;
 }
-.X-O{
+.X{
     position: relative;
     
 }
-.X-O::before{
+.X::before{
     content: ''; position: absolute; width: 45px; rotate: 45deg; border: 3px solid black;
 }
-.X-O::after{
+.X::after{
     content: '';
     position: absolute;
     width: 45px;
