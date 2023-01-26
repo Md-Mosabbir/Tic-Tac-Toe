@@ -60,7 +60,6 @@ const displayController = (function () {
   winnerDiv.style.display = 'none'
 
   const headerTag = document.createElement('h1')
-  
   const nameP = document.createElement('p')
 
   const buttonContainer = document.createElement('div')
