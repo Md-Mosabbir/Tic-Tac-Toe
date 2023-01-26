@@ -28,7 +28,6 @@ const gameBoard = (function () {
       }
     }
   }
-  
 
   return {
 
@@ -55,7 +54,8 @@ const gameBoard = (function () {
           _Board.splice(parseInt(_Board.indexOf(item)), 1, '')
           boxCells.forEach(item => {
             item.classList.remove('X')
-            item.classList.remove('O')})
+            item.classList.remove('O')
+          })
           displayArray()
         }
       })
