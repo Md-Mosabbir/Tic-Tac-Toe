@@ -5,8 +5,8 @@
 }
 
 .container{
-    width: 100vw;
-    height: 100vh;
+    width: 90vw;
+    height: 90vh;
     display: grid;
     justify-content: center;
     align-content: center;
@@ -63,3 +63,59 @@
     border-top: none;
 }
 /*------------------------------*/
+
+.winner{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    background-color: black;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+
+    font-size: 50px;
+    color: white;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.winner p{
+    background-color: grey;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    
+}
+
+.button-container{
+
+    width: 300px;
+    height: 100px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-container button{
+    margin-top: 30px;
+    border: none;
+    width: 110px;
+    height: 70px;
+    font-size: large;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.25;
+}
+
+.button-container button:hover{
+    background-color: hsl(0, 0%, 65%);
+    scale: 1.03;
+}

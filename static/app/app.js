@@ -39,6 +39,14 @@ const gameBoard = (function () {
       return _Board.every(item => {
         return item !== ''
       })
+    },
+    resetBoard: function () {
+      _Board.forEach((item) => {
+        if (item === 'x' || item === 'o') {
+          _Board.splice(parseInt(_Board.indexOf(item)), 1, '')
+          displayArray()
+        }
+      })
     }
 
   }
@@ -48,6 +56,29 @@ const gameBoard = (function () {
 const displayController = (function () {
   let _xMark = true
   const boxCells = document.querySelectorAll('[data-box]')
+  const winnerDiv = document.querySelector('.winner')
+  winnerDiv.style.display = 'none'
+
+  const headerTag = document.createElement('h1')
+  
+  const nameP = document.createElement('p')
+
+  const buttonContainer = document.createElement('div')
+  buttonContainer.classList.add('button-container')
+
+  const buttonRestart = document.createElement('button')
+  buttonRestart.textContent = 'Restart'
+  const buttonNewGame = document.createElement('button')
+  buttonNewGame.textContent = 'New Game'
+
+  buttonRestart.addEventListener('click', restart)
+  buttonNewGame.addEventListener('click', newGame)
+
+  winnerDiv.appendChild(headerTag)
+  winnerDiv.appendChild(nameP)
+  buttonContainer.appendChild(buttonRestart)
+  buttonContainer.appendChild(buttonNewGame)
+  winnerDiv.appendChild(buttonContainer)
 
   boxCells.forEach((item) => item.addEventListener('click', handleGame))
 
@@ -73,27 +104,36 @@ const displayController = (function () {
     }
   }
 
+  function draw () {
+    headerTag.textContent = 'The Game is a'
+    nameP.textContent = 'DRAW'
+    winnerDiv.style.display = ''
+  }
+
   function winner (sign) {
     if (sign === mosabbir.symbol) {
-      const winnerDiv = document.querySelector('.winner')
-      const headerTag = document.createElement('h1')
       headerTag.textContent = 'Winner is'
-      const nameP = document.createElement('p')
       nameP.textContent = `${mosabbir.name}`
-
-      winnerDiv.appendChild(headerTag)
-      winnerDiv.appendChild(nameP)
+      winnerDiv.style.display = ''
     } else if (sign === mosarrat.symbol) {
-      const winnerDiv = document.querySelector('.winner')
-      const headerTag = document.createElement('h1')
       headerTag.textContent = 'Winner is'
-      const nameP = document.createElement('p')
       nameP.textContent = `${mosarrat.name}`
-
-      winnerDiv.appendChild(headerTag)
-      winnerDiv.appendChild(nameP)
-      winnerDiv.style.display = 'block'
+      winnerDiv.style.display = ''
     }
+  }
+
+  function restart () {
+    winnerDiv.style.display = 'none'
+    _xMark = true
+
+    gameBoard.resetBoard()
+  }
+
+  function newGame () {
+    winnerDiv.style.display = 'none'
+    _xMark = true
+    nameP.textContent = ''
+    gameBoard.resetBoard()
   }
 })()
 
