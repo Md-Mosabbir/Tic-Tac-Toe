@@ -15,10 +15,10 @@
 }
 
 .box{
-    width: 100px;
-    height: 100px;
+    width: 170px;
+    height: 170px;
     position: relative;
-    border: 1px solid black;
+    border: 3px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,6 +37,20 @@
     rotate: -45deg;
     border: 3px solid black;
 }
+
+.O{
+    position: relative;
+    
+}
+.O::before{
+    content: ''; 
+    position: absolute; 
+    width: 45px; 
+    height: 45px;
+    border-radius: 50%; 
+    border: 5px solid black;
+}
+
 
 .box:first-child,
 .box:nth-child(2),
@@ -70,7 +84,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 5;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.945);
     
 
     display: flex;

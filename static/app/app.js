@@ -14,20 +14,21 @@ const gameBoard = (function () {
   ]
 
   const boxCells = document.querySelectorAll('[data-box]')
+
   // Function for displaying X and O in DOM
   function displayArray () {
     for (let i = 0; i < _Board.length; i++) {
       // boxCells[i].textContent = _Board[i]
       if (_Board[i] === 'x') {
-        boxCells[i].textContent = 'x'
+        boxCells[i].classList.add('X')
       } else if (_Board[i] === 'o') {
-        boxCells[i].textContent = 'o'
+        boxCells[i].classList.add('O')
       } else if (_Board[i] === '') {
         boxCells[i].textContent = ''
       }
     }
   }
-  displayArray()
+  
 
   return {
 
@@ -52,6 +53,9 @@ const gameBoard = (function () {
       _Board.forEach((item) => {
         if (item === 'x' || item === 'o') {
           _Board.splice(parseInt(_Board.indexOf(item)), 1, '')
+          boxCells.forEach(item => {
+            item.classList.remove('X')
+            item.classList.remove('O')})
           displayArray()
         }
       })
@@ -91,12 +95,10 @@ const displayController = (function () {
 
   function handleGame (e) {
     if (e.target.textContent === '' && _xMark === true) {
-      e.target.textContent = mosabbir.symbol
       gameBoard.splicingBoard(e.target.dataset.box, mosabbir.symbol)
       endgame(mosabbir.symbol)
       _xMark = false
     } else if (e.target.textContent === '' && _xMark === false) {
-      e.target.textContent = mosarrat.symbol
       gameBoard.splicingBoard(e.target.dataset.box, mosarrat.symbol)
       endgame(mosarrat.symbol)
       _xMark = true
