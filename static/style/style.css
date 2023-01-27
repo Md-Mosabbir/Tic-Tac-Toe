@@ -23,6 +23,10 @@
     align-items: center;
     justify-content: center;
 }
+
+.box:hover{
+    background-color: hsla(0, 0%, 82%, 0.137);
+}
 .X{
     position: relative;
     

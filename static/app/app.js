@@ -19,12 +19,10 @@ const gameBoard = (function () {
   function displayArray () {
     for (let i = 0; i < _Board.length; i++) {
       // boxCells[i].textContent = _Board[i]
-      if (_Board[i] === 'x') {
+      if (_Board[i] === 'x' && !boxCells[i].classList.contains('O')) {
         boxCells[i].classList.add('X')
-      } else if (_Board[i] === 'o') {
+      } else if (_Board[i] === 'o' && !boxCells[i].classList.contains('X')) {
         boxCells[i].classList.add('O')
-      } else if (_Board[i] === '') {
-        boxCells[i].textContent = ''
       }
     }
   }
@@ -94,11 +92,11 @@ const displayController = (function () {
   boxCells.forEach((item) => item.addEventListener('click', handleGame))
 
   function handleGame (e) {
-    if (e.target.textContent === '' && _xMark === true) {
+    if (!e.target.classList.contains('X') && !e.target.classList.contains('O') && _xMark === true) {
       gameBoard.splicingBoard(e.target.dataset.box, mosabbir.symbol)
       endgame(mosabbir.symbol)
       _xMark = false
-    } else if (e.target.textContent === '' && _xMark === false) {
+    } else if (!e.target.classList.contains('O') && !e.target.classList.contains('X') && _xMark === false) {
       gameBoard.splicingBoard(e.target.dataset.box, mosarrat.symbol)
       endgame(mosarrat.symbol)
       _xMark = true
