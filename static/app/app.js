@@ -149,6 +149,6 @@ const displayController = (function () {
 function player (name, symbol) {
   return { name, symbol }
 }
-// eslint-disable-next-line no-unused-vars
+
 const mosabbir = player('Mosabbir', 'x')
 const mosarrat = player('Mosarrat', 'o')
