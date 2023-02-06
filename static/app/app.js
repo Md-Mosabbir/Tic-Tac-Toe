@@ -116,7 +116,7 @@ const displayController = (function () {
     } else if (e.target.textContent === 'o') {
       e.target.textContent = 'x'
       changingSymbolsOne.textContent = 'o'
-      _xMark = true
+      _xMark = false
     }
   })
 
@@ -190,7 +190,12 @@ const displayController = (function () {
 
   function restart () {
     winnerDiv.style.display = 'none'
-    _xMark = true
+
+    if (document.querySelector('.symbol1').textContent === 'o') {
+      _xMark = false
+    } else {
+      _xMark = true
+    }
 
     gameBoard.resetBoard()
   }
