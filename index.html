@@ -9,30 +9,40 @@
     <script src="static/app/app.js" defer></script>
   </head>
   <body>
-    <h1>Tic-Tac-Toe</h1>
-    <div class="name-form">
-      <div class="player">
-        <h2>Player-1</h2>
-        <label for="player1-name">Name:</label>
-        <input type="text" name="player1-name" id="player1-input">
-        <button class="symbol">X</button>
+    <div class="input-form-container">
+      <div class="name-form">
+        <div class="player-form">
+          <h2>Player-1</h2>
+          <div class="name-button">
+            <label for="player1-name">Name:</label>
+            <input type="text" name="player1-name" id="player1-input" />
+            <button class="symbol" id="player1-symbol">x</button>
+          </div>
+          
+        </div>
+        <div class="second-player-container">
+          <div class="player-form">
+            <h2>Player-2</h2>
+            <div class="name-button">
+              <label for="player2-name">Name:</label>
+              <input type="text" name="player2-name" id="player2-input" />
+              <button class="symbol" id="player2-symbol">o</button>
+            </div>
+            
+          </div>
+        </div>
+        <button id="start">start</button>
       </div>
-      <div class="player">
-        <h2>Player-2</h2>
-        <label for="player2-name">Name:</label>
-        <input type="text" name="player2-name" id="player2-input">
-        <button class="symbol">O</button>
-      </div>
-      <div class="player"><button>AI</button></div>
     </div>
+
     <div class="player-name">
       <div class="player" id="player1">
-        <h2>Name:</h2>
-        <p>symbol:</p>
+        <h2>Name:</h2> <span class="name1"></span>
+        <p>symbol:</p> <span class="symbol1"></span>
       </div>
       <div class="player" id="player2">
-        <h2>Name:</h2>
-        <p>symbol:</p>
+        <h2>Name:</h2><span class="name2"></span>
+        <p>symbol:</p><span class="symbol2"></span>
       </div>
     </div>
     <div id="container" class="container">
@@ -46,10 +56,6 @@
       <div class="box" data-box="7"></div>
       <div class="box" data-box="8"></div>
     </div>
-    <div class="winner">
-
-
-    </div>
-
+    <div class="winner"></div>
   </body>
 </html>

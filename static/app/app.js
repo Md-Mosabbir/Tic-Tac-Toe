@@ -1,3 +1,4 @@
+
 // gameBoard
 
 const gameBoard = (function () {
@@ -68,13 +69,10 @@ const displayController = (function () {
   const boxCells = document.querySelectorAll('[data-box]')
   const winnerDiv = document.querySelector('.winner')
   winnerDiv.style.display = 'none'
-
   const headerTag = document.createElement('h1')
   const nameP = document.createElement('p')
-
   const buttonContainer = document.createElement('div')
   buttonContainer.classList.add('button-container')
-
   const buttonRestart = document.createElement('button')
   buttonRestart.textContent = 'Restart'
   const buttonNewGame = document.createElement('button')
@@ -88,9 +86,40 @@ const displayController = (function () {
   buttonContainer.appendChild(buttonRestart)
   buttonContainer.appendChild(buttonNewGame)
   winnerDiv.appendChild(buttonContainer)
-
+  // --------------------------------------------------------------------//
   boxCells.forEach((item) => item.addEventListener('click', handleGame))
 
+  const mosabbir = player('', 'x')
+  const mosarrat = player('', 'o')
+
+  const startButton = document.querySelector('#start')
+
+  startButton.addEventListener('click', handleInput)
+
+  function handleInput () {
+    const playerOneName = document.getElementById('player1-input').value
+    const playerTwoName = document.getElementById('player2-input').value
+
+    const playerOneSymbol = document.getElementById('player1-symbol').textContent
+    const playerTwoSymbol = document.getElementById('player2-symbol').textContent
+
+    document.querySelector('.input-form-container').style.display = 'none'
+
+    
+
+    mosabbir.name = playerOneName
+    mosarrat.name = playerTwoName
+    mosabbir.symbol = playerOneSymbol
+    mosarrat.symbol = playerTwoSymbol
+    displayDetails()
+  }
+  function displayDetails () {
+
+    document.querySelector('.name1').textContent = mosabbir.name
+    document.querySelector('.name2').textContent = mosarrat.name
+    document.querySelector('.symbol1').textContent = mosabbir.symbol
+    document.querySelector('.symbol2').textContent = mosarrat.symbol
+  }
   function handleGame (e) {
     if (!e.target.classList.contains('X') && !e.target.classList.contains('O') && _xMark === true) {
       gameBoard.splicingBoard(e.target.dataset.box, mosabbir.symbol)
@@ -133,6 +162,7 @@ const displayController = (function () {
     winnerDiv.style.display = 'none'
     _xMark = true
 
+
     gameBoard.resetBoard()
   }
 
@@ -140,6 +170,17 @@ const displayController = (function () {
     winnerDiv.style.display = 'none'
     _xMark = true
     nameP.textContent = ''
+    document.querySelector('.name1').textContent = ''
+    document.querySelector('.name2').textContent = ''
+    document.querySelector('.symbol1').textContent = ''
+    document.querySelector('.symbol2').textContent = ''
+
+    const playerOneName = document.getElementById('player1-input')
+    playerOneName.value = ''
+    const playerTwoName = document.getElementById('player2-input')
+    playerTwoName.value = ''
+    document.querySelector('.input-form-container').style.display = 'block'
+
     gameBoard.resetBoard()
   }
 })()
@@ -149,6 +190,3 @@ const displayController = (function () {
 function player (name, symbol) {
   return { name, symbol }
 }
-
-const mosabbir = player('Mosabbir', 'x')
-const mosarrat = player('Mosarrat', 'o')
