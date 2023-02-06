@@ -100,9 +100,11 @@ const displayController = (function () {
     if (e.target.textContent === 'x') {
       e.target.textContent = 'o'
       changingSymbolsTwo.textContent = 'x'
+      _xMark = false
     } else if (e.target.textContent === 'o') {
       e.target.textContent = 'x'
       changingSymbolsTwo.textContent = 'o'
+      _xMark = true
     }
   })
 
@@ -111,9 +113,11 @@ const displayController = (function () {
     if (e.target.textContent === 'x') {
       e.target.textContent = 'o'
       changingSymbolsOne.textContent = 'x'
+      _xMark = true
     } else if (e.target.textContent === 'o') {
       e.target.textContent = 'x'
       changingSymbolsOne.textContent = 'o'
+      _xMark = true
     }
   })
 
@@ -211,6 +215,8 @@ const displayController = (function () {
     playerOneName.value = ''
     const playerTwoName = document.getElementById('player2-input')
     playerTwoName.value = ''
+    changingSymbolsOne.textContent = 'x'
+    changingSymbolsTwo.textContent = 'o'
     document.querySelector('.input-form-container').style.display = 'flex'
 
     gameBoard.resetBoard()
