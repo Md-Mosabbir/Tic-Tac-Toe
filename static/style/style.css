@@ -201,7 +201,6 @@
     z-index: 5;
 }
 .name-form{
-
     
     height: 800px;
     display: flex;
@@ -209,6 +208,14 @@
     justify-content: space-around;
     align-items: center;
     filter: drop-shadow(0px 10px 23px #7B7B7B);
+}
+.name-form h1{
+    font-size: 45px;
+    font-family: 'Poppins', 'san-serif';
+    background-color: #4e4e4e7a;
+    padding: 10px;
+    border-radius: 10px;
+    
 }
 .name-form button {
     font-family: 'Josefin Sans', sans-serif;
