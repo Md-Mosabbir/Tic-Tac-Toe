@@ -5,8 +5,9 @@
 }
 
 .container{
-    width: 90vw;
-    height: 90vh;
+
+    width: 100%;
+    height: 80vh;
     display: grid;
     justify-content: center;
     align-content: center;
@@ -140,9 +141,10 @@
 /*----------------------*/
 
 .player-name{
-    background-color: pink;
+    
     width: 100%;
-    height: 150px;
+    padding: 10px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -150,12 +152,34 @@
 }
 
 .player{
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
     height: 100px;
-    background-color: brown;
-    padding: 10px;
+    background-color: black;
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+}
+.player .name1, .player .symbol1{
+    color: chartreuse;
+    font-size: 20px;
+}
+.player .name2, .player .symbol2{
+    color: red;
+    font-size: 20px;
+}
+.displayed-name{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
+.displayed-symbol{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 /*-------------------*/
 
 .input-form-container{
@@ -224,3 +248,4 @@
     align-items: center;
     gap: 1rem;
 }
+/*----------*/

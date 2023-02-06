@@ -108,7 +108,6 @@ const displayController = (function () {
     }
   })
 
- 
   changingSymbolsTwo.addEventListener('click', (e) => {
     if (e.target.textContent === 'x') {
       e.target.textContent = 'o'
@@ -202,13 +201,10 @@ const displayController = (function () {
     nameP.textContent = ''
     const playerOneDisplayName = document.querySelector('.name1')
     playerOneDisplayName.textContent = ''
-
     const playerTwoDisplayName = document.querySelector('.name2')
     playerTwoDisplayName.textContent = ''
-
     const playerOneDisplaySymbol = document.querySelector('.symbol1')
     playerOneDisplaySymbol.textContent = ''
-
     const playerTwoDisplaySymbol = document.querySelector('.symbol2')
     playerTwoDisplaySymbol.textContent = ''
     const playerOneName = document.getElementById('player1-input')
