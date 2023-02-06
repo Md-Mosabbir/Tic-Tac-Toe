@@ -105,8 +105,6 @@ const displayController = (function () {
 
     document.querySelector('.input-form-container').style.display = 'none'
 
-    
-
     mosabbir.name = playerOneName
     mosarrat.name = playerTwoName
     mosabbir.symbol = playerOneSymbol
@@ -114,11 +112,17 @@ const displayController = (function () {
     displayDetails()
   }
   function displayDetails () {
+    const playerOneDisplayName = document.querySelector('.name1')
+    playerOneDisplayName.textContent = mosabbir.name
 
-    document.querySelector('.name1').textContent = mosabbir.name
-    document.querySelector('.name2').textContent = mosarrat.name
-    document.querySelector('.symbol1').textContent = mosabbir.symbol
-    document.querySelector('.symbol2').textContent = mosarrat.symbol
+    const playerTwoDisplayName = document.querySelector('.name2')
+    playerTwoDisplayName.textContent = mosarrat.name
+
+    const playerOneDisplaySymbol = document.querySelector('.symbol1')
+    playerOneDisplaySymbol.textContent = mosabbir.symbol
+
+    const playerTwoDisplaySymbol = document.querySelector('.symbol2')
+    playerTwoDisplaySymbol.textContent = mosarrat.symbol
   }
   function handleGame (e) {
     if (!e.target.classList.contains('X') && !e.target.classList.contains('O') && _xMark === true) {
@@ -162,7 +166,6 @@ const displayController = (function () {
     winnerDiv.style.display = 'none'
     _xMark = true
 
-
     gameBoard.resetBoard()
   }
 
@@ -170,11 +173,17 @@ const displayController = (function () {
     winnerDiv.style.display = 'none'
     _xMark = true
     nameP.textContent = ''
-    document.querySelector('.name1').textContent = ''
-    document.querySelector('.name2').textContent = ''
-    document.querySelector('.symbol1').textContent = ''
-    document.querySelector('.symbol2').textContent = ''
+    const playerOneDisplayName = document.querySelector('.name1')
+    playerOneDisplayName.textContent = ''
 
+    const playerTwoDisplayName = document.querySelector('.name2')
+    playerTwoDisplayName.textContent = ''
+
+    const playerOneDisplaySymbol = document.querySelector('.symbol1')
+    playerOneDisplaySymbol.textContent = ''
+
+    const playerTwoDisplaySymbol = document.querySelector('.symbol2')
+    playerTwoDisplaySymbol.textContent = ''
     const playerOneName = document.getElementById('player1-input')
     playerOneName.value = ''
     const playerTwoName = document.getElementById('player2-input')
