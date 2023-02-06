@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Poppins:wght@600&family=Roboto:wght@300&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -162,20 +164,24 @@
     color: #fff;
 }
 .player .name1, .player .symbol1{
+    font-family: 'Poppins', sans-serif;
     color: chartreuse;
     font-size: 20px;
 }
 .player .name2, .player .symbol2{
+    font-family: 'Poppins', sans-serif;
     color: red;
     font-size: 20px;
 }
 .displayed-name{
+    font-family: 'Roborto', sans-serif;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
 .displayed-symbol{
+    font-family: 'Roborto', sans-serif;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -203,6 +209,7 @@
     align-items: center;
 }
 .name-form button {
+    font-family: 'Josefin Sans', sans-serif;
     background-color: #fff;
     border: none;
     width: 110px;
@@ -210,11 +217,20 @@
     font-size: 35px;
     border-radius: 15px;
     transition: all 0.3s;
+    outline: none;
+}
+.name-form button:hover{
+    background-color: hsl(0, 0%, 0%);
+    color: #fff;
 }
 #start{
     width: 150px;
     height: 70px;
 
+}
+#start:hover{
+    scale: 1.02;
+    background-color: green;
 }
 .player-form{
     border-radius: 10px;
@@ -225,14 +241,19 @@
 
 
 .player-form h2 {
+    
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 20px;
     font-size: 40px;
 }
 .player-form label{
+    font-family: 'Poppins', sans-serif;
+    
     font-size: 32px;
 }
 
 .player-form input[type=text]{
+    font-family: 'Poppins', sans-serif;
     font-size: 25px;
     width: 900px;
     height: 70px;
