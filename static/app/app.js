@@ -89,10 +89,33 @@ const displayController = (function () {
   // --------------------------------------------------------------------//
   boxCells.forEach((item) => item.addEventListener('click', handleGame))
 
-  const mosabbir = player('', 'x')
-  const mosarrat = player('', 'o')
+  const mosabbir = player('', '')
+  const mosarrat = player('', '')
 
   const startButton = document.querySelector('#start')
+  const changingSymbolsOne = document.getElementById('player1-symbol')
+  const changingSymbolsTwo = document.getElementById('player2-symbol')
+
+  changingSymbolsOne.addEventListener('click', (e) => {
+    if (e.target.textContent === 'x') {
+      e.target.textContent = 'o'
+      changingSymbolsTwo.textContent = 'x'
+    } else if (e.target.textContent === 'o') {
+      e.target.textContent = 'x'
+      changingSymbolsTwo.textContent = 'o'
+    }
+  })
+
+ 
+  changingSymbolsTwo.addEventListener('click', (e) => {
+    if (e.target.textContent === 'x') {
+      e.target.textContent = 'o'
+      changingSymbolsOne.textContent = 'x'
+    } else if (e.target.textContent === 'o') {
+      e.target.textContent = 'x'
+      changingSymbolsOne.textContent = 'o'
+    }
+  })
 
   startButton.addEventListener('click', handleInput)
 
@@ -188,7 +211,7 @@ const displayController = (function () {
     playerOneName.value = ''
     const playerTwoName = document.getElementById('player2-input')
     playerTwoName.value = ''
-    document.querySelector('.input-form-container').style.display = 'block'
+    document.querySelector('.input-form-container').style.display = 'flex'
 
     gameBoard.resetBoard()
   }
